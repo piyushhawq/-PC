@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Special Garima ❤️</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #ffe6e6;
+            text-align: center;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            overflow: hidden;
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            color: #ff4d4d;
+            margin-bottom: 30px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .question {
+            font-size: 1.2em;
+            margin: 20px 0;
+            color: #333;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(-100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .btn {
+            padding: 10px 30px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                120deg,
+                transparent,
+                rgba(255, 255, 255, 0.3),
+                transparent
+            );
+            transition: 0.5s;
+        }
+
+        .btn:hover:before {
+            left: 100%;
+        }
+
+        #yesBtn {
+            background-color: #ff4d4d;
+            color: white;
+            transform-origin: center;
+        }
+
+        #yesBtn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(255, 77, 77, 0.5);
+        }
+
+        #noBtn {
+            background-color: #666;
+            color: white;
+            position: relative;
+        }
+
+        .gif-container {
+            margin: 20px 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            height: 200px;
+            width: 200px;
+            margin: 20px auto;
+        }
+
+        .gif-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 999;
+            display: none;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            color: #ff4d4d;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .sparkle {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background-color: #ffeb3b;
+            pointer-events: none;
+            animation: sparkle 1s linear forwards;
+        }
+
+        @keyframes sparkle {
+            0% { transform: scale(0); opacity: 1; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+
+        .final-message {
+            font-size: 1.5em;
+            color: #ff4d4d;
+            margin: 20px 0;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .response-text {
+            color: #ff4d4d;
+            font-size: 1.2em;
+            margin: 20px 0;
+            animation: fadeIn 0.5s ease-in;
+        }
+    </style>
+</head>
+<body>
+     <div class="container">
+        <h1>Garima ❤️</h1>
+        <div id="content"></div>
+    </div>
+    <div class="hearts" id="hearts"></div>
+
+    <script>
+
+const questions = [
+    {
+        question: "Every moment with you feels like magic. Will you be mine forever? 🥰",
+        gif: "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZXl3dWR0aGRmNWNlcnBvaXBqZXpoY2Zib292NmFrNW9kODF0b2ZmeSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/M9yC8b0x7Y7oA/giphy.gif",
+        yesResponse: "You make my heart complete! ❤️"
+    },
+    {
+        question: "You're the missing piece to my puzzle. Can I keep you forever?",
+        gif: "https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif",
+        yesResponse: "My heart beats only for you! 🥰"
+    },
+    {
+        question: "Would you let me spend the rest of my life making you smile?",
+        gif: "https://media.giphy.com/media/LuvsSH7vbGeKtZ238M/giphy.gif",
+        yesResponse: "You're my dream come true! 💝"
+    },
+    {
+        question: "Can I take you on a romantic adventure under the stars?",
+        gif: "https://media.giphy.com/media/26BRv0ThflsHCqDrG/giphy.gif",
+        yesResponse: "Every moment with you is pure magic! 💫"
+    },
+    {
+        question: "Would you share infinity with me, my love?",
+        gif: "https://media.giphy.com/media/108M7gCS1JSoO4/giphy.gif",
+        yesResponse: "Forever wouldn't be long enough! 💕"
+    },
+    {
+        question: "Can I be the reason for your smile every morning?",
+        gif: "https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif",
+        yesResponse: "You're my first and last thought each day! 💖"
+    },
+    {
+        question: "Would you dance with me through life's beautiful moments?",
+        gif: "https://media.giphy.com/media/26BRv0ThflsHCqDrG/giphy.gif",
+        yesResponse: "With you, every step is a love story! 🌟"
+    },
+    {
+        question: "Will you be my heart's keeper for all eternity?",
+        gif: "https://media.giphy.com/media/26BRv0ThflsHCqDrG/giphy.gif",
+        yesResponse: "My heart has found its home in you! 💘"
+    }
+];
+    
+        let currentQuestion = 0;
+
+        function displayQuestion(index) {
+            const content = document.getElementById('content');
+            content.innerHTML = `
+                <div class="question">${questions[index].question}</div>
+                <div class="gif-container">
+                    <img src="${questions[index].gif}" alt="Cute animation" />
+                </div>
+                <div class="buttons">
+                    <button id="yesBtn" class="btn">Yes</button>
+                    <button id="noBtn" class="btn">No</button>
+                </div>
+            `;
+            initializeButtons();
+        }
+
+        function moveButton(e) {
+            const noBtn = e.target;
+            const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+            const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+            
+            noBtn.style.position = 'fixed';
+            noBtn.style.left = `${x}px`;
+            noBtn.style.top = `${y}px`;
+
+            createSparkles(x, y, noBtn.offsetWidth, noBtn.offsetHeight);
+            e.preventDefault();
+            return false;
+        }
+
+        function createSparkles(x, y, width, height) {
+            for (let i = 0; i < 5; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle';
+                sparkle.style.left = (x + Math.random() * width) + 'px';
+                sparkle.style.top = (y + Math.random() * height) + 'px';
+                document.body.appendChild(sparkle);
+                setTimeout(() => sparkle.remove(), 1000);
+            }
+        }
+
+        function createHearts() {
+            const heartsContainer = document.getElementById('hearts');
+            heartsContainer.style.display = 'block';
+            heartsContainer.innerHTML = '';
+            
+            for (let i = 0; i < 40; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDelay = Math.random() * 2 + 's';
+                heart.innerHTML = '❤️';
+                heartsContainer.appendChild(heart);
+            }
+
+            setTimeout(() => {
+                heartsContainer.innerHTML = '';
+                heartsContainer.style.display = 'none';
+            }, 4000);
+        }
+
+        function showResponse(response) {
+            const content = document.getElementById('content');
+            content.innerHTML = `
+                <div class="response-text">${response}</div>
+                <div class="gif-container">
+                    <img src="${questions[currentQuestion].gif}" alt="Cute animation" />
+                </div>
+            `;
+        }
+
+        function showFinalMessage() {
+            const content = document.getElementById('content');
+            content.innerHTML = `
+                <div class="final-message">${questions[currentQuestion].yesResponse}</div>
+                <div class="gif-container">
+                    <img src="https://media.giphy.com/media/26BRv0ThflsHCqDrG/giphy.gif" alt="Happy celebration" />
+                </div>
+                <div class="question" style="font-size: 1.5em;">
+                    Thank you for forgiving me! I promise to always make you happy! 💑💕
+                </div>
+            `;
+        }
+
+        function handleYesClick() {
+            createHearts();
+            
+            if (currentQuestion < questions.length - 1) {
+                showResponse(questions[currentQuestion].yesResponse);         
+                setTimeout(() => {
+                    currentQuestion++;
+                    displayQuestion(currentQuestion);
+                }, 2000);
+            } else {
+                showFinalMessage();
+            }
+        }
+
+        function initializeButtons() {
+            const noBtn = document.getElementById('noBtn');
+            const yesBtn = document.getElementById('yesBtn');
+            
+            if (noBtn && yesBtn) {
+                noBtn.replaceWith(noBtn.cloneNode(true));
+                yesBtn.replaceWith(yesBtn.cloneNode(true));
+                
+                const newNoBtn = document.getElementById('noBtn');
+                const newYesBtn = document.getElementById('yesBtn');
+                
+                newNoBtn.addEventListener('mouseover', moveButton);
+                newNoBtn.addEventListener('click', moveButton);
+                newYesBtn.addEventListener('click', handleYesClick);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            displayQuestion(0);
+        });
+    </script>
+</body>
+</html>
